@@ -1,0 +1,109 @@
+/*
+ * Multiple Two-Proportion Z-Tests Calculator
+ * Copyright 2026 Moe Pouyan. All rights reserved.
+ * https://www.moepouyan.com
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   Design tokens, mirrored from moepouyan.com. Same token set as the Canadian
+   Sampling Plan Tool and the single Two-Proportion Z-Test Calculator, so the
+   tools read as one family when embedded on the site.
+   See docs/THEME-SPEC.md for the source of every value.
+   --------------------------------------------------------------------------- */
+:root {
+  --brand: #0047ab;
+  --brand-rgb: 0, 71, 171;
+  --brand-hover: #003a8c;
+  --brand-tint: rgba(0, 71, 171, 0.08);
+
+  --ink: #18212b;
+  --muted: #5b6673;
+  --secondary-text: rgba(0, 0, 0, 0.72);
+
+  --page-bg: #f5f5f5;
+  --surface: #ffffff;
+  --paper: #f7f5ef;
+  --hairline: #d5d9df;
+
+  --success: #166534;
+  --warning: #b45309;
+  --danger: #991b1b;
+
+  --radius-card: 24px;
+  --radius-control: 12px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 4px 6px rgba(0, 0, 0, 0.02), 0 10px 15px rgba(0, 0, 0, 0.03),
+    0 0 0 1px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 14px 28px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.05);
+
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: var(--page-bg);
+  color: var(--secondary-text);
+  font-size: 17px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  color: var(--brand);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+:focus-visible {
+  outline: 3px solid #ffbf47;
+  outline-offset: 3px;
+}
+
+/* Figures line up column to column in the data table and the result cards */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Spinners crowd the narrow table inputs */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+}

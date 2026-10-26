@@ -1,0 +1,20 @@
+# Config for a manual (drag-and-drop) deploy of this folder.
+# Build settings are ignored for manual deploys; redirects and headers still apply.
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# The tool is embedded on moepouyan.com as an iframe, so framing must stay allowed.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "frame-ancestors 'self' https://www.moepouyan.com https://moepouyan.com https://*.squarespace.com"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
